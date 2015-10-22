@@ -4,7 +4,8 @@ using namespace std;
 class my_vector : public vector<int> {
   public:
     int StoE(int i) {
-      return (*this).at(i) + (*this).at(i - 1);
+      // (*this).at(i) is the same with this->at(i)
+      return this->at(i) + this->at(i - 1);
     }
 };
 
