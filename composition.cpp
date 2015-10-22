@@ -11,7 +11,12 @@ class Composition {
       value = 0;
     }
     inline int operator + (const Composition b) {
-      Composition a = (*this);
+      
+      // Why would you want to do this? You already have access to this.
+      // Also you add performance overhead by copying the object in a new variable.
+      // Composition a = (*this);
+      // You could use a reference to avoid copying and dereferencing at the same time: 
+      Composition &a = (*this)
       return a.value * a.value +
         2 * a.value * b.value +
         b.value * b.value;
